@@ -2,11 +2,9 @@ package ejercicioEnClase;
 
 public class MetodosBeca {
     Utils utils;
-
     public MetodosBeca(Utils utils) {
         this.utils = utils;
     }
-
     public String recomendacionBeca(String ci){
         String msg="";
         if(Helpers.aplicaBeca(ci)){

@@ -11,9 +11,9 @@ public class MetodosBeca {
         String msg="";
         if(Helpers.aplicaBeca(ci)){
             if(utils.getNota(ci)>=90){
-                msg="";
+                msg="SI APLICA A BECA";
             }else{
-                msg="";
+                msg="NO APLICA A BECA POR PROMEDIO ACADEMICO";
             }
         }else{
             msg="EL ESTUDIANTE NO CURSO AUN EL 60% DE LAS MATERIAS";

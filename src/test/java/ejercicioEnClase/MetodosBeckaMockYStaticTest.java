@@ -19,21 +19,10 @@ public class MetodosBeckaMockYStaticTest {
 
     @Test
     public void noAplicaBeca(){
-        Mockito.when(utilsmock.getNota("10933055")).thenReturn(20);
         MetodosBeca metodosBeca=new MetodosBeca(utilsmock);
         String expected ="EL ESTUDIANTE NO CURSO AUN EL 60% DE LAS MATERIAS";
         String actual = metodosBeca.recomendacionBeca("10933055");
-        Assertions.assertEquals(expected,actual,"Error");
-
-    }
-    @Test
-    public void noAplicaBeca90(){
-        Mockito.when(utilsmock.getNota("10933055")).thenReturn(90);
-        MetodosBeca metodosBeca=new MetodosBeca(utilsmock);
-        String expected ="EL ESTUDIANTE NO CURSO AUN EL 60% DE LAS MATERIAS";
-        String actual = metodosBeca.recomendacionBeca("10933055");
-        Assertions.assertEquals(expected,actual,"Error");
-
+        Assertions.assertEquals(expected,actual,"Error output no coincide");
     }
 
     @Test
@@ -42,17 +31,17 @@ public class MetodosBeckaMockYStaticTest {
         MetodosBeca metodosBeca=new MetodosBeca(utilsmock);
         String expected ="SI APLICA A BECA";
         String actual = metodosBeca.recomendacionBeca("21133055");
-        Assertions.assertEquals(expected,actual,"Errror");
+        Assertions.assertEquals(expected,actual,"Error output no coincide");
         Mockito.verify(utilsmock).getNota("21133055");
     }
 
     @Test
     public void noAplicaBecaPromedio(){
-        Mockito.when(utilsmock.getNota("1231234")).thenReturn(70);
+        Mockito.when(utilsmock.getNota("1231234")).thenReturn(89);
         MetodosBeca metodosBeca=new MetodosBeca(utilsmock);
         String expected ="NO APLICA A BECA POR PROMEDIO ACADEMICO";
         String actual = metodosBeca.recomendacionBeca("1231234");
-        Assertions.assertEquals(expected,actual,"Errror");
+        Assertions.assertEquals(expected,actual,"Error output no coincide");
         Mockito.verify(utilsmock).getNota("1231234");
     }
 
@@ -62,7 +51,7 @@ public class MetodosBeckaMockYStaticTest {
         MetodosBeca metodosBeca=new MetodosBeca(utilsmock);
         String expected ="SI APLICA A BECA";
         String actual = metodosBeca.recomendacionBeca("12341234");
-        Assertions.assertEquals(expected,actual,"Errror");
+        Assertions.assertEquals(expected,actual,"Error output no coincide");
         Mockito.verify(utilsmock).getNota("12341234");
     }
 }
